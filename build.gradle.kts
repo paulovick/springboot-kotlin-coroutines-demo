@@ -19,6 +19,12 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+
+	implementation(platform("io.arrow-kt:arrow-stack:1.1.5"))
+	implementation("io.arrow-kt:arrow-core")
+	implementation("io.arrow-kt:arrow-fx-coroutines")
+	implementation("io.arrow-kt:arrow-fx-stm")
+
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
