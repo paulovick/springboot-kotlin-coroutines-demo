@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:12
+    environment:
+      POSTGRES_USER: coroutines_user
+      POSTGRES_PASSWORD: coroutines_pass
+      POSTGRES_DB: coroutines_db
+    ports:
+      - "5432:5432"

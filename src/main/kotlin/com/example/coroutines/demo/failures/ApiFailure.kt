@@ -9,3 +9,8 @@ data class InternalServerErrorApiFailure(
     override val code: String,
     override val message: String
 ) : ApiFailure()
+
+data class NotFoundErrorApiFailure(
+    override val code: String,
+    override val message: String
+) : ApiFailure()
