@@ -5,7 +5,7 @@ import com.example.coroutines.demo.domain.Book
 import com.example.coroutines.demo.domain.BookId
 
 interface FindBookByIdRepository {
-    fun findById(id: BookId): Either<FindBookByIdFailure, Book>
+    suspend fun findById(id: BookId): Either<FindBookByIdFailure, Book>
 }
 
 data class FindBookByIdFailure(

@@ -5,11 +5,12 @@ import com.example.coroutines.demo.domain.Book
 import com.example.coroutines.demo.domain.BookId
 import com.example.coroutines.demo.domain.repositories.FindBookByIdFailure
 import com.example.coroutines.demo.domain.repositories.FindBookByIdRepository
+import kotlinx.coroutines.delay
 import java.time.LocalDate
 
 class DummyFindBookByIdRepository : FindBookByIdRepository {
-    override fun findById(id: BookId): Either<FindBookByIdFailure, Book> {
-        Thread.sleep(1000)
+    override suspend fun findById(id: BookId): Either<FindBookByIdFailure, Book> {
+        delay(1000)
         return books.firstOrNull { it.id == id }?.let { Either.Right(it) }
             ?: Either.Left(FindBookByIdFailure.notFound(id))
     }

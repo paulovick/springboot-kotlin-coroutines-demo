@@ -12,7 +12,7 @@ class ObservableFindBookByIdRepository(private val delegate: FindBookByIdReposit
 
     private val logger = Logger.getLogger(this::class.java.simpleName)!!
 
-    override fun findById(id: BookId): Either<FindBookByIdFailure, Book> {
+    override suspend fun findById(id: BookId): Either<FindBookByIdFailure, Book> {
         logger.info("Starting to fetch book: $id")
 
         lateinit var result: Either<FindBookByIdFailure, Book>
