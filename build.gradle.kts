@@ -25,6 +25,10 @@ dependencies {
 	implementation("io.arrow-kt:arrow-fx-coroutines")
 	implementation("io.arrow-kt:arrow-fx-stm")
 
+	implementation("org.springframework.boot:spring-boot-starter-jdbc")
+	implementation("org.postgresql:postgresql:42.5.3")
+	implementation("org.flywaydb:flyway-core:9.14.1")
+
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 

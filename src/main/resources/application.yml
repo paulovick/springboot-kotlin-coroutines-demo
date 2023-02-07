@@ -1,10 +1,11 @@
 
 spring:
 
-  r2dbc:
-    url: r2dbc:postgresql://localhost:5432/coroutines_db
+  datasource:
+    url: jdbc:postgresql://localhost:5432/coroutines_db
     username: coroutines_user
     password: coroutines_pass
+    driver-class-name: org.postgresql.Driver
 
   flyway:
     enabled: true
