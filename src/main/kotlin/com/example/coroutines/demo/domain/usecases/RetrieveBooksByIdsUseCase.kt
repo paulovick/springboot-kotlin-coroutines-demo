@@ -8,11 +8,15 @@ import com.example.coroutines.demo.domain.repositories.FindBookByIdRepository
 import com.example.coroutines.demo.failures.ApiFailure
 import com.example.coroutines.demo.failures.NotFoundErrorApiFailure
 
-class RetrieveBooksByIdsUseCase(
-    private val findBookByIdRepository: FindBookByIdRepository
-) {
+interface RetrieveBooksByIdsUseCase {
+    operator fun invoke(bookIds: Collection<BookId>): Either<ApiFailure, Collection<Book>>
+}
 
-    operator fun invoke(bookIds: Collection<BookId>): Either<ApiFailure, Collection<Book>> = eager {
+class DefaultRetrieveBooksByIdsUseCase(
+    private val findBookByIdRepository: FindBookByIdRepository
+) : RetrieveBooksByIdsUseCase {
+
+    override fun invoke(bookIds: Collection<BookId>): Either<ApiFailure, Collection<Book>> = eager {
         bookIds.map { bookId ->
             findBookByIdRepository.findById(bookId).bind()
         }
