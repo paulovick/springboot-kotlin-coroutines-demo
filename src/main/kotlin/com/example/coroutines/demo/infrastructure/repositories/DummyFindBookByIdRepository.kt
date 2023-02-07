@@ -9,6 +9,7 @@ import java.time.LocalDate
 
 class DummyFindBookByIdRepository : FindBookByIdRepository {
     override fun findById(id: BookId): Either<FindBookByIdFailure, Book> {
+        Thread.sleep(1000)
         return books.firstOrNull { it.id == id }?.let { Either.Right(it) }
             ?: Either.Left(FindBookByIdFailure.notFound(id))
     }
